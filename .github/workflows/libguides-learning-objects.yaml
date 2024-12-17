@@ -73,24 +73,24 @@ jobs:
       run: |
           echo "STATUS_MESSAGE=LibGuides Learning Objects Webpage has updated. For more information, please visit: [https://unisotonlibrary.github.io/libguides-learning-objects](https://unisotonlibrary.github.io/libguides-learning-objects)." >> $GITHUB_ENV
 
-    # - name: Send email notification
-      # id: send_email
-      # if: always()
-      # uses: dawidd6/action-send-mail@v3
-      # with:
-        # server_address: smtp.gmail.com
-        # server_port: 465
-        # username: ${{secrets.GMAIL_USERNAME}}
-        # password: ${{secrets.GMAIL_PASSWORD}}
-        # subject: ${{'FAO Carrie - LibGuides Learning Objects Summary Updated'}}
-        # html_body: ${{ env.STATUS_MESSAGE }}
-        # convert_markdown: true
+     - name: Send email notification
+       id: send_email
+       if: always()
+       uses: dawidd6/action-send-mail@v3
+       with:
+         server_address: smtp.gmail.com
+         server_port: 465
+         username: ${{secrets.GMAIL_USERNAME}}
+         password: ${{secrets.GMAIL_PASSWORD}}
+         subject: ${{'FAO Carrie - LibGuides Learning Objects Summary Updated'}}
+         html_body: ${{ env.STATUS_MESSAGE }}
+         convert_markdown: true
         # attachments: ${{ env.ATTACHMENT }}
-        # to: ${{secrets.LIB_EMAIL_RECIPIENT}}
-        # cc: ${{secrets.EMAIL_RECIPIENT}}
-        # from: Library Linkchecker
-        # priority: normal
-        # secure: true
+         to: ${{secrets.LIB_EMAIL_RECIPIENT}}
+         cc: ${{secrets.EMAIL_RECIPIENT}}
+         from: Library Linkchecker
+         priority: normal
+         secure: true
 
     # Prepare website directory for deployment
     - name: Prepare website artifacts
