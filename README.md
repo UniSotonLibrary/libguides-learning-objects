@@ -1,6 +1,6 @@
 # LibGuides Learning Objects
 
-Invalid Date
+Last updated: 2024-12-17
 
 This repository contains the python code and yaml workflow for collating
 information about the learning objects (LOs) hosted on the University of
